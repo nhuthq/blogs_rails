@@ -22,11 +22,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Sign Up", new_author_registration_path, class: "nav-link" %>
-          </li>
-
-          <li class="nav-item">
             <%= link_to "Sign In", new_author_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_author_registration_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

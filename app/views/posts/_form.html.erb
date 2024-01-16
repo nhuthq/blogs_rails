@@ -18,21 +18,25 @@
   <br/>
 
   <div class="form-group">
-    <%= form.text_area :description, class: 'form-control', placeholder: 'Description' %>
-  </div>
-  <br/>
-
-  <div class="form-check">
-    <%= form.check_box :published, class: "form-check-input", type: "checkbox" %>
-    <label class="form-check-label" for="flexCheckDefault">
-      Published
-    </label>
+    <%= form.text_field :short_description, class: 'form-control', placeholder: 'Short description' %>
   </div>
   <br/>
 
   <div class="form-group">
-    <%= form.datetime_field :published_at %>
+    <%= form.text_area :content, class: 'form-control', placeholder: 'Content' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :published %>
+    <%= form.check_box :published, class: "form-check-input", type: "checkbox" %>
+  </div>
+
+  <br/>
+
+  <div class="form-group">
     <%= form.label :published_at %>
+    <%= form.datetime_field :published_at %>
   </div>
   <br/>
 

@@ -1,38 +1,30 @@
 <p style="color: green"><%= notice %></p>
-
-<div class="jumbotron">
-  <h1 class="display-4">
-    <%= @post.title %>
-    <%= @post.short_description %>
-
-  </h1>
-  <p class="lead">
-    <%= @post.short_description %> |
-    <%= @post.published_at %>
-  </p>
-
-  <p class="">
+<% content_for :page_title, @post.title %>
+<section class="section">
+  <br/>
+  <h1><%= @post.title %></h1>
+  <div class="col-6">
     <%= @post.author.email %>
-  </p>
-
-  <div class="card-body">
-    <%= @post.content %>
   </div>
-  <br/>
-
-  <div class="section comments">
-    <div class="container">
-      <h2 class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</h2>
-      <%= render @post.comments %>
-    </div>
+  <div class="col-6">
+    <%= @post.published_at %>
   </div>
+  <br/><br/>
+  <div class="col">
+    <%= link_to "Edit", edit_post_path(@post), class: 'btn btn-primary' %>
+    <%= link_to "Delete", @post, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+  </div>
+</section>
+<br/><hr/><br/>
+<section class="section">
+  <%= @post.content %>
+</section>
 
-  <br/>
-</div>
+<br/>
+<hr/><br/>
 
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+  <%= link_to "Back to posts", posts_path, class: 'btn btn-secondary' %>
 </div>
+
+<br/><br/>
